@@ -1,0 +1,138 @@
+\documentclass{article}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{fontspec}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{xepersian}
+\settextfont[Scale=1.0, Extension=.ttf]{XB Niloofar}
+
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+\declaretheoremstyle[name=Principle,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{principle}
+\tcolorboxenvironment{principle}{colback=LightGreen}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=7pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4
+}
+\lstset{style=mystyle}
+
+\title{ \normalsize \textsc{بِسمِ اللّهِ الرَحمنِ الرَحيم}
+		\\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{{تمرین سری ششم: برنامه نویسی سوکت}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{تمرین انتهای فصل دوم کراس} \vspace*{10\baselineskip}}
+		}
+\author{
+        \textbf{امین خانی} \\
+        \href{mailto:aminkhai2010@gmail.com}{\texttt{aminkhai2010@gmail.com}}\\
+        شبکه های کامپیوتری، استاد گلی \\
+		دانشگاه کاشان \\
+}
+\date{اردیبهشت 1402}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+
+\begin{center}
+    \LARGE{صورت سوال}
+\end{center}
+\setLTR{
+\section*{\lr{Assignment 1: Web Server}}
+    In this assignment, you will develop a simple Web server in Python that is capable
+    of processing only one request. Specifically, your Web server will (i) create a connection socket when contacted by a client (browser); (ii) receive the HTTP request
+    from this connection; (iii) parse the request to determine the specific file being
+    requested; (iv) get the requested file from the server's file system; (v) create an
+    HTTP response message consisting of the requested file preceded by header lines;
+    and (vi) send the response over the TCP connection to the requesting browser. If a
+    browser requests a file that is not present in your server, your server should return a
+    “404 Not Found” error message.
+
+    In the companion Web site, we provide the skeleton code for your server. Your
+    job is to complete the code, run your server, and then test your server by sending
+    requests from browsers running on different hosts. If you run your server on a host
+    that already has a Web server running on it, then you should use a different port than
+    port 80 for your Web server.
+}
+
+\vspace*{3\baselineskip}
+
+\setRTL{
+در این تکلیف، شما یک وب سرور ساده در پایتون ایجاد خواهید کرد که قادر به پردازش تنها یک درخواست است. به طور خاص، سرور وب شما (i) هنگامی که مشتری (مرورگر) با آن تماس می گیرد، یک سوکت اتصال ایجاد می کند. (ii) درخواست HTTP را از این اتصال دریافت کنید. (iii) درخواست را برای تعیین پرونده خاص مورد درخواست تجزیه و تحلیل کند. (iv) دریافت فایل درخواستی از سیستم فایل سرور؛ (v) ایجاد یک پیام پاسخ HTTP متشکل از فایل درخواستی که قبل از خطوط سرصفحه قرار دارد. و (vi) پاسخ را از طریق اتصال TCP به مرورگر درخواست کننده ارسال کنید. اگر مرورگر فایلی را درخواست کند که در سرور شما وجود ندارد، سرور شما باید پیام خطای "404 یافت نشد" را برگرداند.
+
+در وب سایت همراه، ما کد اسکلت سرور شما را ارائه می دهیم. وظیفه شما این است که کد را تکمیل کنید، سرور خود را اجرا کنید و سپس سرور خود را با ارسال درخواست از مرورگرهای در حال اجرا بر روی هاست های مختلف آزمایش کنید. اگر سرور خود را روی میزبانی اجرا می کنید که قبلاً یک وب سرور روی آن در حال اجرا است، باید از پورت متفاوتی نسبت به پورت 80 برای وب سرور خود استفاده کنید.
+}
+
+\newpage
+
+\setLTR{
+    \large{server.py}
+
+    \lstinputlisting[language=python]{server.py}
+
+    \large{client.py}
+
+    \lstinputlisting[language=python]{client.py}
+}
+
+
+
+\end{document}
